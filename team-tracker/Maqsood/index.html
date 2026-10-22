@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maqsood Alam: Labs &amp; Radiology Tracker</title>
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#f7f7f8;color:#1a1a1a}
+main{max-width:1200px;margin:0 auto;padding:32px 24px}
+h1{font-size:28px;margin:0 0 6px}h2{font-size:19px;margin:32px 0 12px}
+.sum{color:#555;margin:0 0 20px}
+.callout{background:#fff7e6;border:1px solid #f0c36d;border-radius:12px;padding:14px 18px}
+.callout b{display:block;margin-bottom:4px}
+.grid{display:flex;flex-wrap:wrap;gap:16px}.grid>div{flex:1 1 320px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e3e3e6;border-radius:12px;overflow:hidden;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #eee;vertical-align:top}th{background:#fafafa;font-weight:600}
+td.num{text-align:right}a{color:#1f6feb;text-decoration:none;font-family:ui-monospace,Menlo,Consolas,monospace}
+.warn{color:#b26a00;font-weight:600}.danger{color:#c62828;font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filters button{border:1px solid #ccc;background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13px}
+.filters button.on{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+p.note{color:#555;font-size:14px}
+</style></head><body><main>
+<h1>Maqsood Alam: Labs &amp; Radiology Tracker</h1>
+<p class="sum">Maqsood's pending lab and radiology CC tickets in Jira, compared with his branches and open PRs in Teleglobal/core-ecoshealth. Last refreshed 22 Oct 2026, 8:00 PM PKT.</p>
+<div class="callout"><b>33 pending lab and radiology tickets, but nothing in GitHub to match them.</b>Maqsood (GitHub user Maqsood137) has no lab or radiology branches and no open PRs. His last commit was on 21 Oct 2025. Nine of these tickets are already in Branch Testing or Integration Testing, so their code must be somewhere other than his own branches.</div>
+
+<h2>Comparison by CC ticket key</h2>
+<div class="grid"><div><table><tr><th>Bucket</th><th>Count</th></tr>
+<tr><td>Tickets with an open PR</td><td class="num">0</td></tr>
+<tr><td>Tickets with a branch but no open PR</td><td class="num">0</td></tr>
+<tr><td>Pending tickets with no branch or PR</td><td class="num">33</td></tr>
+<tr><td>Open PRs or branches on Done or reassigned tickets</td><td class="num">0</td></tr>
+<tr><td>Status mismatches (in testing, no branch)</td><td class="num warn">9</td></tr></table></div>
+<div><table><tr><th>Jira status</th><th>Tickets</th></tr>
+<tr><td>To Do</td><td class="num">12</td></tr><tr><td>In development</td><td class="num">12</td></tr>
+<tr><td>Branch Testing</td><td class="num">8</td></tr><tr><td>Integration Testing</td><td class="num">1</td></tr></table></div></div>
+
+<h2>Pending tickets</h2>
+<div class="filters" id="fs"></div><div class="filters" id="fr"></div>
+<table id="tt"><thead><tr><th>Key</th><th>Title</th><th>Status</th><th>Priority</th><th>Updated (PKT)</th><th>Area</th><th>Branch/PR</th></tr></thead><tbody></tbody></table>
+<p class="note">The Jira bot sorted tickets into lab or radiology by title. The seven marked Uncertain touch ordering providers, provider setup, procedure settings, Bill To, billing for a labs practice, auto-attached ICDs, and procedure templates.</p>
+
+<h2>Status mismatches</h2>
+<table id="mm"><thead><tr><th>Key</th><th>Title</th><th>Status</th><th>Updated (PKT)</th><th>Note</th></tr></thead><tbody></tbody></table>
+
+<h2>Maqsood's GitHub activity (none lab-related)</h2>
+<table><tr><th>PR</th><th>Title</th><th>State</th><th>Created (PKT)</th><th>CC key</th></tr>
+<tr><td><a href="https://github.com/Teleglobal/core-ecoshealth/pull/21960" target="_blank">#21960</a></td><td>Issue With Patient Portal Registration</td><td>Merged</td><td>2025-10-21 20:12</td><td>CC-63715</td></tr>
+<tr><td><a href="https://github.com/Teleglobal/core-ecoshealth/pull/19969" target="_blank">#19969</a></td><td>Suffix Make Required</td><td>Merged</td><td>2025-07-28 23:33</td><td>CC-61638</td></tr>
+<tr><td><a href="https://github.com/Teleglobal/core-ecoshealth/pull/18180" target="_blank">#18180</a></td><td>Core-ecoshealth Optmal Care Onboarding</td><td>Merged</td><td>2025-04-30 23:35</td><td>CC-59146</td></tr>
+<tr><td><a href="https://github.com/Teleglobal/core-ecoshealth/pull/18137" target="_blank">#18137</a></td><td>PMS &gt; Careline should be able to select the User's username</td><td>Merged</td><td>2025-04-29 15:51</td><td>CC-59557</td></tr></table>
+
+<h2>Caveats</h2>
+<p class="note">The branch search looked for branches named Maqsood/ and maqsood/. It didn't check who authored the latest commit on each of the repo's 8,000+ branches, so a lab branch with a different name could be missed.</p>
+<p class="note">Lab work exists in other people's branches, for example madilasghar/labs/CC-68213-location-0. Tickets in testing may have been coded there, under another account, or in another repo.</p>
+<p class="note">Jira reports 68 open tickets for Maqsood in total. The other 35 were left out as unrelated to labs or radiology. CC-54757 (injections and inventory) was a borderline call.</p>
+</main>
+<script>
+const T=[
+["CC-75497","Ordering Providers Are Not Populating Correctly in User Profile in EHR – PMS Settings","Branch Testing","Low","2026-10-21 17:51","Uncertain"],
+["CC-69872","Adding lab results-uploading faxed report","To Do","Critical","2026-10-16 01:56","Lab"],
+["CC-75528","WEB-EHR | Loader closes before a large Lab/Radiology file finishes uploading","To Do","Low","2026-10-07 23:07","Lab + Radiology"],
+["CC-75477","Radiology recent radiology test list selection issue","Branch Testing","Low","2026-10-07 01:34","Radiology"],
+["CC-73156","Save diagnosis into fav test list","In development","Low","2026-10-06 20:26","Lab"],
+["CC-75203","Result Record in Radiology, why it is showing Unsign and Send buttons","Branch Testing","Low","2026-10-01 01:44","Radiology"],
+["CC-74274","Auto select fax to from lab requisition","In development","Low","2026-09-30 22:25","Lab"],
+["CC-74685","Select field inline search and add lab order issue","In development","Low","2026-09-25 18:28","Lab"],
+["CC-74566","AOEs at order level","In development","Low","2026-09-24 01:59","Lab"],
+["CC-50473","Labs - Save Diagnosis when saving as Favorite","In development","High","2026-09-23 01:25","Lab"],
+["CC-74746","Labs-Auto select test for specifice labs","Branch Testing","Low","2026-09-17 22:09","Lab"],
+["CC-74706","Creating/updating a lab result, frontend not passing reviews to the API","To Do","Low","2026-09-17 01:39","Lab"],
+["CC-74426","HealthInfo | Delete complete lab result","Integration Testing","Low","2026-09-15 19:55","Lab"],
+["CC-73115","Auto Populate 3 Fields During Provider Creation | UHealth","To Do","High","2026-08-27 23:22","Uncertain"],
+["CC-72560","Add status filter on global lab results page","To Do","Low","2026-08-25 20:54","Lab"],
+["CC-73778","Task Assignment checkbox in Radiology forms","In development","Low","2026-08-20 00:59","Radiology"],
+["CC-73268","PRV-Live-Lab result issues","In development","Low","2026-08-06 22:01","Lab"],
+["CC-73183","Lab Result acknowledge and UI disturbed issue","To Do","Low","2026-08-04 20:49","Lab"],
+["CC-73142","Unable to add or remove categories in the Procedure Settings","To Do","High","2026-08-04 01:34","Uncertain"],
+["CC-72900","Bill to dropdown not working unexpectedly","Branch Testing","Low","2026-07-30 01:26","Uncertain"],
+["CC-72419","EHR- Add Diagnosis on Lab Order form","To Do","Low","2026-07-13 20:42","Lab"],
+["CC-72074","Lab order form Issues","Branch Testing","Low","2026-07-09 19:45","Lab"],
+["CC-69212","Lab Printer Settings | Everheal Medical","Branch Testing","Medium","2026-05-15 20:06","Lab"],
+["CC-61170","Excellence Medical Labs | eSuperBill","In development","Highest","2026-05-12 19:48","Uncertain"],
+["CC-65550","WEB-EHR | Labs | Unable to add lab result when no observation is associated","To Do","Low","2026-05-11 23:09","Lab"],
+["CC-68909","Apply font colors in Lab Results","To Do","High","2026-04-16 19:49","Lab"],
+["CC-66511","Auto Attach ICDs","In development","Low","2026-02-19 21:37","Uncertain"],
+["CC-63996","rewrite query for lab results","To Do","Low","2025-11-05 18:43","Lab"],
+["CC-62679","EHR - Lab result","To Do","Low","2025-09-10 19:04","Lab"],
+["CC-62574","WEB-EHR-Add Result form Patient select From Hl7 Demographic","In development","Low","2025-08-26 20:46","Lab"],
+["CC-54814","WEB | EHR : Procedures - Injections template fields mismatched","In development","High","2025-08-01 20:06","Uncertain"],
+["CC-58315","EHR-Direct Lab Result issues","In development","Low","2025-07-30 22:23","Lab"],
+["CC-57525","Labs filter is not working","Branch Testing","Low","2025-07-30 22:17","Lab"]];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const testing=s=>s==="Branch Testing"||s==="Integration Testing";
+const link=k=>`<a href="https://ethizo.atlassian.net/browse/${k}" target="_blank">${k}</a>`;
+let st="All",rl="All";
+const SS=["All","Branch Testing","Integration Testing","In development","To Do"],RR=["All","Lab","Radiology","Uncertain"];
+function btns(id,opts,get,set){const el=document.getElementById(id);el.innerHTML="";opts.forEach(o=>{const b=document.createElement("button");const c=id==="fs"?(o==="All"?T.length:T.filter(t=>t[2]===o).length):null;b.textContent=c!==null?`${o} (${c})`:o;if(get()===o)b.className="on";b.onclick=()=>{set(o);render()};el.appendChild(b)})}
+function render(){btns("fs",SS,()=>st,v=>st=v);btns("fr",RR,()=>rl,v=>rl=v);
+const rows=T.filter(t=>st==="All"||t[2]===st).filter(t=>rl==="All"||(rl==="Lab"?t[5].startsWith("Lab"):rl==="Radiology"?t[5].includes("Radiology"):t[5]==="Uncertain"));
+document.querySelector("#tt tbody").innerHTML=rows.map(t=>`<tr><td>${link(t[0])}</td><td>${esc(t[1])}</td><td class="${testing(t[2])?"warn":""}">${t[2]}</td><td class="${t[3]==="Critical"||t[3]==="Highest"?"danger":""}">${t[3]}</td><td>${t[4]}</td><td>${t[5]}</td><td>None</td></tr>`).join("")}
+document.querySelector("#mm tbody").innerHTML=T.filter(t=>testing(t[2])).map(t=>`<tr><td>${link(t[0])}</td><td>${esc(t[1])}</td><td class="warn">${t[2]}</td><td>${t[4]}</td><td>No branch or PR by Maqsood</td></tr>`).join("");
+render();
+</script></body></html>
