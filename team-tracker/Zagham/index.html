@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zagham — Labs &amp; Radiology Tracker</title>
+<style>
+:root{--bg:#fff;--paper:#fff;--text:#1a1a1a;--sub:#555;--ter:#888;--border:#e3e3e3;--accent:#1f6feb;--ok:#1a7f37;--warn:#b35900;--bad:#c62828;--fill:#f4f4f4;--warnbg:#fff6e8}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--paper:#1b1b1b;--text:#ececec;--sub:#b5b5b5;--ter:#8a8a8a;--border:#333;--accent:#58a6ff;--ok:#3fb950;--warn:#e3a33a;--bad:#ff6b6b;--fill:#262626;--warnbg:#2a2214}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1280px;margin:0 auto;padding:32px 24px 64px}
+h1{font-size:28px;margin:0 0 8px}.summary{color:var(--sub);margin:0 0 28px;max-width:900px}
+h2{font-size:19px;margin:36px 0 14px}section>*+*{margin-top:14px}
+.callout{background:var(--warnbg);border:1px solid var(--border);border-left:4px solid var(--warn);border-radius:12px;padding:14px 16px}.callout b{display:block;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:16px;align-items:start}
+.card{border:1px solid var(--border);border-radius:16px;padding:16px 20px;background:var(--paper);overflow-x:auto}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--ter);font-weight:500;font-size:13px;white-space:nowrap}tr:last-child td{border-bottom:none}
+.card table td:last-child,.card table th:last-child{text-align:right}
+a{color:var(--accent);text-decoration:none;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}a:hover{text-decoration:underline}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.success{color:var(--ok);font-weight:500}.warning{color:var(--warn);font-weight:500}.danger{color:var(--bad);font-weight:500}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--fill);border-radius:10px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--sub);padding:5px 12px;border-radius:8px;font:inherit;font-size:13px;cursor:pointer}
+.seg button.on{background:var(--paper);color:var(--text);box-shadow:0 0 0 1px var(--border)}.seg .n{color:var(--ter);margin-left:5px}
+.controls{display:flex;flex-wrap:wrap;gap:12px}
+.rows{border:1px solid var(--border);border-radius:16px;background:var(--paper)}
+.row{display:flex;gap:14px;padding:12px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap}.row:last-child{border-bottom:none}
+.row .lead{font-family:ui-monospace,Menlo,monospace;font-size:13px;min-width:90px;color:var(--sub)}.row .body{flex:1;min-width:240px}.row .t{font-weight:500}.row .d{color:var(--sub);font-size:14px}
+.pill{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--warnbg);color:var(--warn);height:fit-content;white-space:nowrap}
+p{margin:0}.note{color:var(--sub)}
+</style></head><body><main>
+<h1>Zagham — Labs &amp; Radiology Tracker</h1>
+<p class="summary">Syed Zagham Naseem's pending lab and radiology CC tickets in Jira, joined by CC key with his branches and PRs (GitHub xagham) in Teleglobal/core-ecoshealth. Data as of 22 Oct 2026, 11:25 PM PKT. Read-only snapshot, refreshed in place on later runs.</p>
+
+<section><h2>Summary</h2>
+<div class="callout" id="callout"></div>
+<div class="grid2"><div class="card"><table id="cmp"></table></div><div class="card"><table id="src"></table></div></div>
+</section>
+
+<section><h2 id="h-pend"></h2>
+<div class="controls"><div class="seg" id="seg-bucket"></div><div class="seg" id="seg-sort"></div></div>
+<div class="tw"><table id="t-pend"></table></div>
+<p class="note">Left out as not lab/radiology: CC-69595 (move ivr on cake5, To Do) and CC-58153 (Careco reset password link, To Do, open PR #20401).</p>
+</section>
+
+<section><h2 id="h-mm"></h2><div class="rows" id="mm"></div></section>
+
+<section><h2 id="h-s4"></h2><div class="controls"><div class="seg" id="seg-s4"></div></div><div class="tw"><table id="t-s4"></table></div></section>
+
+<section><h2 id="h-br"></h2><div class="controls"><div class="seg" id="seg-br"></div></div><div class="tw"><table id="t-br"></table></div>
+<p class="note">Dates are the head commit date; every Zagham/ head commit is by xagham. The 4 madilasghar/ branches are Adil's branches where Zagham made the latest commit.</p></section>
+
+<section><h2 id="h-cl"></h2><div class="tw"><table id="t-cl"></table></div></section>
+
+<section><h2>Caveats</h2>
+<p>Jira assignee is Syed Zagham Naseem, the only CC user matching "Zagham". His GitHub login xagham comes from authorship of every Zagham/ branch and PR, and Waqar confirmed it.</p>
+<p>Lab/radiology was decided by keyword (lab, radiology, result, ereq, requisition, icd, order) plus Jira title and labels. Borderline items kept: CC-66669 (fax quality to GTI Laboratories) and CC-74274 (auto-select fax on lab requisition). The CC-63946 revert PR #29406 closed before the 30-day window, so whether it merged was not checked.</p>
+<p>Cross-tracker notes. CC-75110, CC-71580, CC-70803 and CC-67036 are Adil's tickets that Zagham has branches or open PRs on, which the Adil tracker doesn't show. CC-74274 is Maqsood's. All times are PKT (UTC+5).</p>
+</section>
+</main>
+<script>
+(function(){
+var D={"PEND": [["CC-76231", "Implement Lab Encounter Service and Result Deletion Acknowledgment", "To Do", "Low", "2026-10-22 22:47", "N", "", "", "", ""], ["CC-63946", "Request for Lab Results Notes Feature", "Branch Testing", "Highest", "2026-10-09 00:42", "B", "", "~/CC-63946-Lab-Result-Notes,~/CC-63946-Lab-Result-Share-Notes-With-Patient,~/CC-63946-Revert-Lab-Result-Notes", "2026-09-16 01:35", "29406"], ["CC-71788", "Return Created Date in Labs & Radiology Reports", "To Do", "Low", "2026-06-24 19:26", "P", "27402", "~/Labs-CC-71788-Returning-Created-At", "2026-06-24 23:46", ""], ["CC-70057", "Move lab order to cake5", "To Do", "Low", "2026-05-14 23:07", "N", "", "", "", ""]], "S4": [["30275", "Zagham/labs/updating radiology report", "~/labs/Updating-Radiology-Report", "master", "2026-10-16 19:25", "", "K"], ["29941", "Zagham/e10x/cc 75110 adding icds in ap", "~/e10x/CC-75110-adding-icds-in-ap", "e10x", "2026-10-02 19:06", "CC-75110", "OAdil Asghar:To Do"], ["29519", "icds fix", "~/lab/icds-fix", "master", "2026-09-18 22:01", "", "K"], ["29212", "Zagham/cc 74274 e fax adding extra info 2", "~/CC-74274-eFax-adding-extra-info-2", "master", "2026-09-09 01:53", "CC-74274", "OMaqsood Alam:In development"], ["27510", "Merge branch 'master' into Zagham/CC-71580-label-fix-for-ereq_new", "~/CC-71580-label-fix-for-ereq_new", "charlie", "2026-06-30 00:24", "CC-71580", "OAdil Asghar:Integration Testing"], ["27402", "Zagham/labs cc 71788 returning created at", "~/Labs-CC-71788-Returning-Created-At", "charlie", "2026-06-24 23:46", "CC-71788", "ZTo Do"], ["27104", "Zagham/labs/cc 70803 new cpt flow", "~/labs/CC-70803-New-CPT-Flow", "charlie", "2026-06-12 22:32", "CC-70803", "OAdil Asghar:In development"]], "BR": [["~/labs/radiology-result-format", "2026-10-16 23:30", "", "K"], ["~/labs/Updating-Radiology-Report", "2026-10-16 23:29", "", "K"], ["~/labs/radiology-result-account", "2026-10-16 23:03", "", "K"], ["~/labs/radiology-result-layout", "2026-10-16 20:53", "", "K"], ["~/labs/radiology-result-template", "2026-10-16 00:11", "", "K"], ["~/labs/radiology-assigned-to", "2026-10-15 21:20", "", "K"], ["~/labs/fix-labresult-redeclare", "2026-10-15 19:39", "", "K"], ["~/labs/Updating-Radiology-Report-charlie", "2026-10-15 02:54", "", "K"], ["~/e10x/CC-75110-adding-icds-in-ap", "2026-10-02 22:52", "CC-75110", "OAdil Asghar:To Do"], ["~/lab-icds-fix-without-charlie", "2026-09-21 18:45", "", "K"], ["~/lab/icds-fix", "2026-09-18 22:46", "", "K"], ["~/Radialogy/CC-67036-Signature-Fix", "2026-09-18 00:00", "CC-67036", "OAdil Asghar:In development"], ["~/CC-63946-Revert-Lab-Result-Notes", "2026-09-16 01:35", "CC-63946", "ZBranch Testing"], ["~/CC-63946-Lab-Result-Share-Notes-With-Patient", "2026-09-16 01:22", "CC-63946", "ZBranch Testing"], ["~/CC-63946-Lab-Result-Notes", "2026-09-16 01:05", "CC-63946", "ZBranch Testing"], ["~/CC-74274-eFax-adding-extra-info-2", "2026-09-09 20:28", "CC-74274", "OMaqsood Alam:In development"], ["~/CC-74274-eFax-adding-extra-info", "2026-09-08 23:42", "CC-74274", "OMaqsood Alam:In development"], ["~/labs/CC-72328-result-file-attachment-fix", "2026-07-10 00:09", "CC-72328", "DDone"], ["~/CC-71580-label-fix-for-ereq_new", "2026-06-30 00:24", "CC-71580", "OAdil Asghar:Integration Testing"], ["~/CC-71580-Adding-footer-label", "2026-06-27 02:21", "CC-71580", "OAdil Asghar:Integration Testing"], ["~/Labs-CC-71788-Returning-Created-At", "2026-06-24 23:46", "CC-71788", "ZTo Do"], ["~/radiology-location-filter-fix", "2026-06-13 02:34", "", "K"], ["~/cc-radiology-location-param", "2026-06-13 02:08", "", "K"], ["~/labs/CC-70803-New-CPT-Flow", "2026-06-12 22:28", "CC-70803", "OAdil Asghar:In development"], ["~/CC-69177-Radilogy-PDF-Fix", "2026-05-22 19:52", "CC-69177", "DProduction Deployed"], ["~/CC-66669-New-eFax-Templates-New", "2026-05-20 00:23", "CC-66669", "OWaqar Aziz:In development"], ["~/CC-66669-New-eFax-Templates", "2026-05-19 23:56", "CC-66669", "OWaqar Aziz:In development"], ["~/lab-report-efax-url-fix", "2026-05-19 20:21", "", "K"], ["madilasghar/labs/CC-70024-radiology-patient-share-new", "2026-05-14 20:56", "CC-70024", "OUnassigned:To Do"], ["madilasghar/labs/CC-70024-radiology-patient-share", "2026-05-14 19:29", "CC-70024", "OUnassigned:To Do"], ["madilasghar/labs/CC-68969-label-settings", "2026-05-05 20:31", "CC-68969", "DProduction Deployed"], ["madilasghar/labs/CC-66630-share-document-error", "2026-04-22 18:41", "CC-66630", "DDone"]], "CL": [["30294", "report formating update", "2026-10-16 23:31", "2026-10-16 23:31", ""], ["30291", "adding account #", "2026-10-16 23:03", "2026-10-16 23:04", ""], ["30283", "Align the new radiology result report header and notes.", "2026-10-16 20:57", "2026-10-16 20:58", ""], ["30261", "Let each radiology practice choose the result report layout.", "2026-10-16 00:12", "2026-10-16 00:22", ""], ["30259", "Show the radiology result assignee on the report header.", "2026-10-15 21:48", "2026-10-15 21:49", ""], ["30248", "Remove the duplicated LabResult methods that fatal patient summary.", "2026-10-15 19:41", "2026-10-15 19:48", ""], ["30228", "add missing fields to the radiology result report", "2026-10-15 02:58", "2026-10-15 19:16", ""], ["30227", "fix radiology requisition notice when an order has no tests", "2026-10-15 01:59", "2026-10-15 02:12", ""], ["30226", "new radiology report format", "2026-10-15 01:25", "2026-10-15 01:27", ""], ["30040", "Madilasghar/labs/cc 74976 internal cancel (to master)", "2026-10-07 00:26", "2026-10-09 23:10", "CC-74976"], ["30003", "Madilasghar/labs/cc 74976 internal cancel (to charlie)", "2026-10-05 23:52", "2026-10-05 23:58", "CC-74976"]], "MMS": [["CC-63946", "Branch Testing", "In testing, no open PR", "3 branches, last commit 16 Sep 2026; revert PR #29406 was opened 16 Sep and is closed"], ["CC-71788", "To Do", "Open PR while ticket is To Do", "Open PR #27402 (to charlie) untouched since 24 Jun 2026"], ["CC-75110", "To Do", "Open PR while ticket is To Do", "Adil's ticket; Zagham's open PR #29941 targets e10x"], ["CC-68969", "Production Deployed", "Key mismatch", "Branch madilasghar/labs/CC-68969-label-settings adds lab label settings, but CC-68969 is \"IVR Set-up, Novenza Practice Group\""], ["No key", "—", "Lab work with no CC key", "Radiology result report rework: open PR #30275, 9 lab/radiology PRs merged 15 to 16 Oct, 8 branches. It may belong to CC-75325 \"Radiology result report updates\" (Adil, To Do), but nothing links them."]]};
+var GH="https://github.com/Teleglobal/core-ecoshealth/pull/",JI="https://ethizo.atlassian.net/browse/";
+var pend=D.PEND,s4=D.S4,brs=D.BR,cl=D.CL,mm=D.MMS;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function full(b){return b.replace(/~\//g,"Zagham/")}
+function a(h,l){return '<a href="'+esc(h)+'" target="_blank" rel="noreferrer">'+esc(l)+'</a>'}
+function prLinks(s){if(!s)return "—";return s.split(",").map(function(n){return a(GH+n,"#"+n)}).join(", ")}
+function tk(k){if(!k)return "—";return k.split(", ").map(function(x){return a(JI+x,x)}).join(", ")}
+function tone(t,c){return '<span class="'+c+'">'+esc(t)+'</span>'}
+var PRI={Highest:0,Critical:0,High:1,Medium:2,Low:3,Lowest:4};
+function testing(s){return s==="Branch Testing"||s==="Integration Testing"||s==="Staging Deployed"}
+var BL={P:"Open PR",B:"Branch only",N:"No branch/PR"};
+function jl(j){return j==="K"?"No CC key":j[0]==="Z"?"Zagham pending ("+j.slice(1)+")":j[0]==="D"?j.slice(1)+" (Done)":j.slice(1).replace(":"," (")+")"}
+function kindOf(j){return j[0]==="D"?"Done ticket":j[0]==="Z"?"Zagham's pending ticket":j==="K"?"No CC key":"Someone else's ticket"}
+var KINDS=["All","Zagham's pending ticket","Someone else's ticket","Done ticket","No CC key"];
+function pri(p){return (p==="Highest"||p==="Critical")?tone(p,"danger"):p==="High"?tone(p,"warning"):esc(p)}
+function stc(s){return testing(s)?tone(s,"warning"):esc(s)}
+function br(s){return s?'<span class="mono">'+esc(s.split(",").map(full).join(", "))+'</span>':"—"}
+function table(id,cols,rows){document.getElementById(id).innerHTML='<thead><tr>'+cols.map(function(c){return '<th>'+esc(c)+'</th>'}).join("")+'</tr></thead><tbody>'+rows.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+c+'</td>'}).join("")+'</tr>'}).join("")+'</tbody>'}
+function seg(id,opts,val,on){var el=document.getElementById(id);el.innerHTML="";opts.forEach(function(o){var b=document.createElement("button");b.innerHTML=esc(o.label)+(o.count!=null?'<span class="n">'+o.count+'</span>':"");if(o.value===val)b.className="on";b.onclick=function(){on(o.value)};el.appendChild(b)})}
+function cnt(arr,f){return arr.filter(f).length}
+var cOpen=cnt(pend,function(r){return r[5]==="P"}),cBranch=cnt(pend,function(r){return r[5]==="B"}),cNone=cnt(pend,function(r){return r[5]==="N"});
+var c4other=cnt(s4,function(r){return r[6][0]==="O"}),c4nokey=cnt(s4,function(r){return r[6]==="K"}),cBrOut=cnt(brs,function(r){return r[3][0]!=="Z"});
+document.getElementById("callout").innerHTML='<b>'+esc(pend.length+" pending lab/radiology tickets: "+cOpen+" with an open PR, "+cBranch+" with a branch only, "+cNone+" with nothing in GitHub.")+'</b>'+esc("Most of Zagham's lab work sits on other people's tickets or has no CC key: "+c4other+" of his "+s4.length+" open lab PRs point to Adil's or Maqsood's tickets and "+c4nokey+" have no key. CC-63946 (Highest) is in Branch Testing with no open PR, and CC-71788 has had an open PR since 24 Jun while the ticket is still To Do. The radiology result report rework (open PR #30275 and 9 PRs merged 15 to 16 Oct) has no ticket.");
+table("cmp",["Comparison bucket (joined by CC key)","Count"],[
+["1. Pending tickets with an open PR",cOpen],["2. Pending tickets with a branch but no open PR",cBranch],["3. Pending tickets with no branch or PR",tone(cNone,"warning")],
+["4a. Open lab PRs on someone else's ticket",c4other],["4b. Open lab PRs with no CC key",c4nokey],["4c. Lab branches whose ticket isn't Zagham's pending, or with no key",cBrOut],["5. Status mismatches",tone(mm.length,"warning")]]);
+table("src",["Source totals","Count"],[["Jira: pending lab/radiology tickets (of 6 open)",pend.length],["GitHub: lab/radiology branches (28 of 64 Zagham/ branches, plus 4 madilasghar/ with his head commit)",brs.length],["GitHub: open lab/radiology PRs (of 22 open by xagham)",s4.length],["GitHub: lab PRs by xagham merged, 22 Sep – 22 Oct",cl.length]]);
+// pending
+var st={bucket:"All",sort:"Updated",s4f:"All",brf:"All"};
+document.getElementById("h-pend").textContent="Pending tickets ("+pend.length+"): sections 1, 2 and 3";
+function renderPend(){
+ seg("seg-bucket",["All","Open PR","Branch only","No branch/PR"].map(function(b){return{value:b,label:b,count:b==="All"?pend.length:cnt(pend,function(r){return BL[r[5]]===b})}}),st.bucket,function(v){st.bucket=v;renderPend()});
+ seg("seg-sort",["Updated","Priority","Key"].map(function(v){return{value:v,label:v}}),st.sort,function(v){st.sort=v;renderPend()});
+ var list=pend.filter(function(r){return st.bucket==="All"||BL[r[5]]===st.bucket}).slice();
+ list.sort(function(x,y){return st.sort==="Updated"?y[4].localeCompare(x[4]):st.sort==="Priority"?(((PRI[x[3]]!=null?PRI[x[3]]:9)-(PRI[y[3]]!=null?PRI[y[3]]:9))||y[4].localeCompare(x[4])):y[0].localeCompare(x[0])});
+ table("t-pend",["Key","Title","Status","Priority","Updated (PKT)","Bucket","Open PR","Branch(es)","Branch last commit (PKT)","Closed PRs"],list.map(function(r){return[tk(r[0]),esc(r[1]),stc(r[2]),pri(r[3]),esc(r[4]),r[5]==="P"?tone("Open PR","success"):r[5]==="B"?"Branch only":tone("No branch/PR","warning"),prLinks(r[6]),br(r[7]),esc(r[8]||"—"),prLinks(r[9])]}));
+}
+renderPend();
+// mismatches
+document.getElementById("h-mm").textContent="Section 5: status mismatches ("+mm.length+")";
+document.getElementById("mm").innerHTML=mm.map(function(r){var d=esc(r[3]);if(r[0].indexOf("CC-")===0)d+=". "+a(JI+r[0],JI+r[0]);return '<div class="row"><div class="lead">'+esc(r[0])+'</div><div class="body"><div class="t">'+esc(r[2])+'</div><div class="d">'+d+'</div></div><span class="pill">'+esc(r[1])+'</span></div>'}).join("");
+// s4
+document.getElementById("h-s4").textContent="Section 4a and 4b: open lab PRs by xagham ("+s4.length+")";
+function renderS4(){
+ seg("seg-s4",KINDS.map(function(f){return{value:f,label:f,count:cnt(s4,function(r){return f==="All"||kindOf(r[6])===f})}}).filter(function(o){return o.count>0}),st.s4f,function(v){st.s4f=v;renderS4()});
+ table("t-s4",["PR","Title","Head → base","Created (PKT)","CC key","Jira side"],s4.filter(function(r){return st.s4f==="All"||kindOf(r[6])===st.s4f}).map(function(r){return[a(GH+r[0],"#"+r[0]),esc(r[1]),'<span class="mono">'+esc(full(r[2])+" → "+r[3])+'</span>',esc(r[4]),tk(r[5]),r[6][0]==="Z"?tone(jl(r[6]),"success"):esc(jl(r[6]))]}));
+}
+renderS4();
+// branches
+document.getElementById("h-br").textContent="Section 4c: lab/radiology branches ("+brs.length+")";
+function renderBr(){
+ seg("seg-br",KINDS.map(function(f){return{value:f,label:f,count:cnt(brs,function(r){return f==="All"||kindOf(r[3])===f})}}).filter(function(o){return o.count>0}),st.brf,function(v){st.brf=v;renderBr()});
+ table("t-br",["Branch","Last commit (PKT)","CC key","Jira side"],brs.filter(function(r){return st.brf==="All"||kindOf(r[3])===st.brf}).map(function(r){return[br(r[0]),esc(r[1]),tk(r[2]),r[3][0]==="D"?tone(jl(r[3]),"danger"):esc(jl(r[3]))]}));
+}
+renderBr();
+document.getElementById("h-cl").textContent="Lab PRs by xagham merged, 22 Sep – 22 Oct 2026 ("+cl.length+")";
+table("t-cl",["PR","Title","Created (PKT)","Merged (PKT)","CC key"],cl.map(function(r){return[a(GH+r[0],"#"+r[0]),esc(r[1]),esc(r[2]),esc(r[3]),tk(r[4])]}));
+})();
+</script>
+</body></html>
