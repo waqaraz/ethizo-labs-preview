@@ -2,7 +2,7 @@
  "member": "Adil",
  "full_name": "Adil Asghar",
  "github": "madilasghar",
- "as_of": "2026-10-27T21:17:00+05:00",
+ "as_of": "2026-10-27T21:23:00+05:00",
  "headline": "Adil has 69 pending lab/radiology tickets (16 with an open PR, 23 branch-only, 30 with nothing in GitHub) and no new work since Oct 22; main risk is CC-74566, where order-level AOE answers are not sent in the HL7 order and no PR exists.",
  "counts": {
   "pending": 69,
